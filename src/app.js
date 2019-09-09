@@ -5,6 +5,7 @@ const hbs=require('hbs')
 const geocode=require('./utils/geocode')
 const request=require('request')
 const forecast=require('./utils/forecast')
+const port=process.env.PORT || 3000
 // console.log(__dirname)
 // console.log(__filename)
 app.set('view engine','hbs')
@@ -75,6 +76,6 @@ app.get('/weather',(req,res)=>{
 app.get('*',(req,res)=>{
     res.send("404 page not found")
 })
-app.listen(3000,()=>{
-    console.log("listening to port 3000")
+app.listen(port,()=>{
+    console.log("listening to port "+port)
 })

@@ -1,16 +1,16 @@
 console.log("client side javascript is on")
 
-fetch('http://localhost:3000/weather?address=bangalore').then((response)=>{
-    response.json().then((data)=>{
-        if(data.error){
-            console.log(data.error)
-        }
-        else{
-            console.log(data.location)
-            console.log(data.summary)
-        }
-    })
-})
+// fetch('http://localhost:3000/weather?address=bangalore').then((response)=>{
+//     response.json().then((data)=>{
+//         if(data.error){
+//             console.log(data.error)
+//         }
+//         else{
+//             console.log(data.location)
+//             console.log(data.summary)
+//         }
+//     })
+// })
 
 const weatherform=document.querySelector('form')
 const search=document.querySelector('input')
@@ -23,7 +23,7 @@ weatherform.addEventListener('submit',(e)=>{
     msg1.textContent='Loading...'
     msg2.textContent=''
     console.log(search.value)
-    fetch('http://localhost:3000/weather?address='+search.value).then((response)=>{
+    fetch('/weather?address='+search.value).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 msg1.textContent=data.error
